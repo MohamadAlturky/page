@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up Form</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- jQuery Validation plugin -->
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mx-auto">
+				<h1>Sign Up Form</h1>
+				<form id="signup-form" method="post" action="#">
+					<div class="form-group">
+						<label for="name">Name</label>
+						<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+					</div>
+					<div class="form-group">
+						<label for="email">Email address</label>
+						<input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+	<script>
+	$(document).ready(function(){
+		// Form validation
+		$("#signup-form").validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 2
+				},
+				email: {
+					required: true,
+					email: true
+				},
+				password: {
+					required: true,
+					minlength: 6
+				}
+			},
+			messages: {
+				name: {
+					required: "Please enter your name",
+					minlength: "Your name must be at least 2 characters long"
+				},
+				email: {
+					required: "Please enter an email address",
+					email: "Please enter a valid email address"
+				},
+				password: {
+					required: "Please enter a password",
+					minlength: "Your password must be at least 6 characters long"
+				}
+			},
+			submitHandler: function(form) {
+				// Submit the form
+				form.submit();
+			}
+		});
+	});
+	</script>
+</body>
+</html>
